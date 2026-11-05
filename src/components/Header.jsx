@@ -2,7 +2,7 @@ import React from 'react';
 
 /**
  * Componente de Cabeçalho (Header)
- * Exibe a marca da aplicação (taskly-todo-list), data formatada e subtítulo.
+ * Exibe o título principal, subtítulo e a data atual formatada.
  */
 export function Header() {
   const formattedDate = new Date().toLocaleDateString('pt-BR', {
@@ -17,11 +17,9 @@ export function Header() {
       <div className="header-left">
         <div className="header-badge">
           <span className="badge-dot"></span>
-          <span className="app-code-name">taskly-todo-list</span>
+          <span>Produtividade & Organização</span>
         </div>
-        <h1 className="app-title">
-          Taskly <span className="title-sub">• To-Do List</span>
-        </h1>
+        <h1 className="app-title">Minha Lista de Tarefas</h1>
         <p className="app-subtitle">Organize suas atividades diárias, prazos e próximos acontecimentos</p>
       </div>
       <div className="header-right">
