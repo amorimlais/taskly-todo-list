@@ -1,0 +1,809 @@
+/* ==========================================================================
+   RESET & VARIÁVEIS CSS (Design Tokens Modernos)
+   ========================================================================== */
+:root {
+  /* Paleta Neutra e Fundos */
+  --bg-page: #f1f5f9;          /* Slate 100: fundo de página agradável aos olhos */
+  --bg-card: #ffffff;          /* Branco puro para cartões e painéis */
+  --bg-subtle: #f8fafc;        /* Slate 50 para fundos internos */
+  --border-color: #e2e8f0;     /* Slate 200: divisórias sutis */
+  --border-hover: #cbd5e1;     /* Slate 300 para hover */
+  
+  /* Tipografia & Contrastes */
+  --text-main: #0f172a;        /* Slate 900: texto de alto impacto */
+  --text-muted: #64748b;       /* Slate 500: legendas e textos de apoio */
+  --text-dim: #94a3b8;         /* Slate 400: desativados e marcações */
+
+  /* Cores de Destaque (Indigo & Roxo) */
+  --primary: #6366f1;          /* Indigo 500 */
+  --primary-hover: #4f46e5;    /* Indigo 600 */
+  --primary-light: #eef2ff;    /* Indigo 50 */
+  --purple-accent: #8b5cf6;    /* Purple 500 */
+  --purple-light: #f5f3ff;     /* Purple 50 */
+
+  /* Cores de Status para Datas & Ações */
+  --danger: #ef4444;
+  --danger-light: #fee2e2;
+  --danger-text: #b91c1c;
+
+  --success: #10b981;
+  --success-light: #d1fae5;
+  --success-text: #065f46;
+
+  --warning: #f59e0b;
+  --warning-light: #fef3c7;
+  --warning-text: #92400e;
+
+  --info: #0ea5e9;
+  --info-light: #e0f2fe;
+  --info-text: #0369a1;
+
+  /* Bordas e Sombras */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
+  --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.03);
+
+  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   CONTAINER DO DASHBOARD (Aproveitamento total da tela)
+   ========================================================================== */
+.dashboard-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ==========================================================================
+   CABEÇALHO EXPANDIDO (Header)
+   ========================================================================== */
+.app-header {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 22px 28px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  width: fit-content;
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+}
+
+.app-code-name {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+}
+
+.app-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--text-main) 30%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.title-sub {
+  font-weight: 500;
+  font-size: 1.45rem;
+  opacity: 0.85;
+}
+
+.app-subtitle {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.date-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.date-badge svg {
+  color: var(--primary);
+}
+
+.current-date {
+  text-transform: capitalize;
+}
+
+/* ==========================================================================
+   LAYOUT EM 2 COLUNAS (Dashboard Body)
+   ========================================================================== */
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 390px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* Painéis de Cartão Comuns */
+.card-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 24px;
+}
+
+.card-header {
+  margin-bottom: 18px;
+}
+
+.card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+}
+
+.card-subtitle {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  display: block;
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   COLUNA ESQUERDA: SIDEBAR (Formulário + Estatísticas)
+   ========================================================================== */
+.dashboard-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Formulário de Adição */
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.task-input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 0.92rem;
+  font-family: inherit;
+  color: var(--text-main);
+  background: var(--bg-subtle);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: var(--transition);
+}
+
+.task-input:focus {
+  background: #ffffff;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.task-date-input {
+  width: 100%;
+  padding: 11px 14px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: var(--text-main);
+  background: var(--bg-subtle);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  outline: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.task-date-input:focus {
+  background: #ffffff;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.btn-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px;
+  margin-top: 6px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--purple-accent) 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+  transition: var(--transition);
+}
+
+.btn-add:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.35);
+  filter: brightness(1.05);
+}
+
+.btn-add:active {
+  transform: translateY(0);
+}
+
+/* Painel de Estatísticas */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.stat-card {
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--bg-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: var(--transition);
+}
+
+.stat-card:hover {
+  border-color: var(--border-hover);
+  background: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stat-label {
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.stat-value {
+  font-size: 1.45rem;
+  font-weight: 700;
+}
+
+.stat-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pending .stat-value { color: var(--primary); }
+.pending-icon { background: var(--primary-light); color: var(--primary); }
+
+.completed .stat-value { color: var(--success); }
+.completed-icon { background: var(--success-light); color: var(--success); }
+
+.scheduled .stat-value { color: var(--info); }
+.scheduled-icon { background: var(--info-light); color: var(--info); }
+
+.total .stat-value { color: var(--text-main); }
+.total-icon { background: #f1f5f9; color: var(--text-main); }
+
+/* ==========================================================================
+   COLUNA DIREITA: MAIN (Filtros, Busca e Lista de Tarefas)
+   ========================================================================== */
+.dashboard-main {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Toolbar com Filtros e Busca */
+.toolbar-panel {
+  padding: 16px 20px;
+}
+
+.toolbar-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.filter-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 7px 14px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.filter-btn:hover {
+  color: var(--primary);
+  background: var(--primary-light);
+}
+
+.filter-btn.active {
+  background: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);
+}
+
+/* Campo de Busca */
+.search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 240px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  color: var(--text-dim);
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 32px 8px 36px;
+  font-size: 0.88rem;
+  font-family: inherit;
+  color: var(--text-main);
+  background: var(--bg-subtle);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-full);
+  outline: none;
+  transition: var(--transition);
+}
+
+.search-input:focus {
+  background: #ffffff;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.btn-clear-search {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 2px 4px;
+}
+
+.btn-clear-search:hover {
+  color: var(--text-main);
+}
+
+.toolbar-info {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Painel da Lista de Tarefas */
+.tasks-panel {
+  min-height: 480px;
+}
+
+.task-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Item de Tarefa Individual */
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: #ffffff;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  animation: fadeIn 0.2s ease-out;
+}
+
+.task-item:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-1px);
+}
+
+.task-content-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Checkbox Customizado */
+.task-checkbox-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.task-checkbox-input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.task-custom-checkbox {
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  transition: var(--transition);
+}
+
+.task-checkbox-container:hover .task-custom-checkbox {
+  border-color: var(--primary);
+}
+
+.task-custom-checkbox svg {
+  stroke: #ffffff;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: var(--transition);
+}
+
+/* Tarefa Concluída */
+.task-item.completed {
+  background: var(--bg-subtle);
+  border-color: #e2e8f0;
+}
+
+.task-item.completed .task-custom-checkbox {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.task-item.completed .task-custom-checkbox svg {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.task-item.completed .task-text {
+  text-decoration: line-through;
+  color: var(--text-dim);
+}
+
+/* Detalhes da Tarefa (Texto e Data) */
+.task-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.task-text {
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: var(--text-main);
+  word-break: break-word;
+  transition: var(--transition);
+}
+
+/* Badges da Data do Acontecimento */
+.task-date-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  width: fit-content;
+  transition: var(--transition);
+}
+
+.task-date-badge.today {
+  background: var(--purple-light);
+  color: var(--purple-accent);
+  border: 1px solid #ddd6fe;
+}
+
+.task-date-badge.tomorrow {
+  background: var(--info-light);
+  color: var(--info-text);
+  border: 1px solid #bae6fd;
+}
+
+.task-date-badge.overdue {
+  background: var(--danger-light);
+  color: var(--danger-text);
+  border: 1px solid #fecaca;
+}
+
+.task-date-badge.upcoming {
+  background: var(--bg-subtle);
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+}
+
+/* Botão de Excluir */
+.task-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 12px;
+  flex-shrink: 0;
+}
+
+.btn-delete {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.btn-delete:hover {
+  color: var(--danger);
+  background: var(--danger-light);
+  transform: scale(1.1);
+}
+
+.btn-delete:focus-visible {
+  outline: 2px solid var(--danger);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   ESTADO VAZIO (Empty State)
+   ========================================================================== */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--text-muted);
+}
+
+.empty-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.empty-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+.empty-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  max-width: 400px;
+}
+
+/* ==========================================================================
+   RODAPÉ
+   ========================================================================== */
+.app-footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding: 16px 0;
+}
+
+/* ==========================================================================
+   ANIMAÇÃO
+   ========================================================================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (Tablets e Celulares)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .dashboard-container {
+    padding: 16px 20px;
+  }
+
+  .dashboard-layout {
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 860px) {
+  .dashboard-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-sidebar {
+    gap: 18px;
+  }
+
+  .search-wrapper {
+    min-width: 100%;
+  }
+
+  .toolbar-top {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-container {
+    padding: 12px 10px;
+  }
+
+  .app-header {
+    padding: 16px;
+  }
+
+  .app-title {
+    font-size: 1.45rem;
+  }
+
+  .card-panel {
+    padding: 16px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .task-item {
+    padding: 12px 14px;
+  }
+
+  .task-text {
+    font-size: 0.92rem;
+  }
+}
